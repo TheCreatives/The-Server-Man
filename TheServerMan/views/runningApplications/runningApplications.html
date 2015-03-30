@@ -1,0 +1,53 @@
+<template name="runningApplications">
+  <div class="container-fluid">
+    <section class="row">
+      <div class=".col-xs-12 .col-sm-12 .col-md-12 col-lg-10 .col-lg-offset-2">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Application Name</th>
+              <th>Size</th>
+              <th>Updated on</th>
+              <th>Location</th>
+              <th>Link</th>
+              <th>Version</th>
+              <th>Status</th>
+              <th>Operations</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each applications}}
+              <tr class="{{#if isRunning}}success{{else}}danger{{/if}}">
+                <td><button class="btn glyphicon badge">+</button></td>
+                <td>{{name}}</td>
+                <td>{{size}}</td>
+                <td>{{date}}</td>
+                <td>{{location}}</td>
+                <td>{{link}}</td>
+                <td>{{version}}</td>
+                <td>{{#if isRunning}}Running{{else}}Stopped{{/if}}</td>
+                <td >
+                  <div class="btn-group" role="group">
+                    <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-upload"> Upload</span></a>
+                    <button type="button" class="btn btn-{{#if isRunning}}warning{{else}}success{{/if}}">
+                      {{#if isRunning}}
+                        <span class="glyphicon glyphicon-stop"> Stop</span>
+                      {{else}}
+                        <span class="glyphicon glyphicon-play"> Start</span>
+                      {{/if}}
+                    </button>
+                    <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"> Delete</span></button>
+                  </div>
+                </td>
+              </tr>
+              {{#if showVersions}}
+                {{> versionsList}}
+              {{/if}}
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</template>
