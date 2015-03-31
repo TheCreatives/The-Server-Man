@@ -1,1 +1,12 @@
 /* CSS declarations go here */
+/* CSS declarations go here */
+ul li {
+	list-style: none;;
+}
+ul li label{
+	width:75px;
+}
+input[type=text]{
+	border: 1px solid #ccc;
+}
+

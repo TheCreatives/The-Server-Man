@@ -7,7 +7,13 @@ if (Meteor.isClient) {
 	});
 	Template.navbar.helpers({
 		UserName: "Laxmikant Dange"
-	})
+	});
+	Template.navbar.events({
+		"click #_newApp" : function(){
+			alert(" HOW TO SHOW THE POPUP");
+			console.log(Session.get('modalVisible'));
+		}
+	});	
 }
 
 if (Meteor.isServer) {
