@@ -10,9 +10,14 @@ if (Meteor.isClient) {
 	});
 	Template.navbar.events({
 		"click #_newApp" : function(){
-			alert(" HOW TO SHOW THE POPUP");
-			console.log(Session.get('modalVisible'));
+			$(".modal").show();
 		}
+	});	
+	Template.newAppForm.events({
+		"click .close" : function(){
+			$(".modal").hide();
+		},
+		
 	});	
 }
 
